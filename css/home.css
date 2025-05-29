@@ -1,0 +1,130 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Fundo */
+body {
+    background-color: #1c1c1c;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ===== Barra Superior ===== */
+.top-bar {
+    background-color: #d9d9d9;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0 25px 25px;
+}
+
+.menu-icon i,
+.voice-icon i {
+    font-size: 20px;
+    cursor: pointer;
+    color: #1c1c1c;
+}
+
+.search-bar {
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 5px;
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-bar i {
+    color: #1c1c1c;
+    cursor: pointer;
+}
+
+/* ===== Mapa ===== */
+.map-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.map-container {
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+}
+
+.map-img {
+    width: 100%;
+    display: block;
+}
+
+.map-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.map-btn i {
+    color: #1c1c1c;
+    font-size: 16px;
+}
+
+/* ===== Botão de Alerta ===== */
+.alert-btn {
+    background-color: #d9d9d9;
+    border-radius: 25px 25px 0 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-btn img {
+    width: 60px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.alert-btn img:hover {
+    transform: scale(1.1);
+}
+
+/* ===== Responsividade ===== */
+@media (min-width: 600px) {
+    .map-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar input {
+        font-size: 12px;
+    }
+}
