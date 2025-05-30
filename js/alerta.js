@@ -20,15 +20,14 @@ document.querySelectorAll('.alert-btn').forEach(btn => {
         submenuTitle.textContent = type.charAt(0).toUpperCase() + type.slice(1);
         submenuOptions.innerHTML = '';
 
-        options.forEach(item => {
+        options.forEach(opcao => {
             const li = document.createElement('li');
-            li.textContent = item;
+            const link = document.createElement('a');
+            link.href = 'criar-report.html';
+            link.textContent = opcao;
+            link.classList.add('submenu-item');
+            li.appendChild(link);
             submenuOptions.appendChild(li);
-
-            li.addEventListener('click', () => {
-                alert(`Reportado: ${item}`);
-                submenu.style.display = 'none';
-            });
         });
 
         submenu.style.display = 'block';
