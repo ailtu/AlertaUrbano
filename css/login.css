@@ -16,7 +16,7 @@ body {
 .container {
     background-color: #d9d9d9;
     padding: 40px 20px;
-    border-radius: 20px;
+    border-radius: 30px;
     width: 90%;
     max-width: 400px;
     text-align: center;
@@ -87,6 +87,23 @@ h1 {
     gap: 10px;
     cursor: pointer;
     transition: background 0.3s;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.signup-link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }
 
 .google-btn img {

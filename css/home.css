@@ -110,6 +110,14 @@ a {
     transition: background-color 0.3s;
 }
 
+.alert-btn {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 .alert-btn:hover {
     background-color: #e5bc00;
 }
