@@ -62,7 +62,6 @@ body {
 }
 
 .map-container {
-    background-color: #d9d9d9;
     border-radius: 20px;
     overflow: hidden;
     width: 90%;
@@ -98,8 +97,8 @@ a {
 
 .map-container {
     position: relative;
-    width: 300px; /* ou o tamanho do mapa */
-    height: 400px; /* ou o tamanho do mapa */
+    width: 350px; /* ou o tamanho do mapa */
+    height: auto; /* ou o tamanho do mapa */
     margin: 0 auto; /* centraliza na tela */
 }
 
