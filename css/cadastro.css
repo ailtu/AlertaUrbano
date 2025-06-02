@@ -94,11 +94,22 @@ body, html {
 }
 
 .login-link a {
-    color: #007BFF;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
 }
 
 .login-link a:hover {
     text-decoration: underline;
+}
+
+.link-custom {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-custom:hover{
+   color: #555;
+   text-decoration: underline;
 }

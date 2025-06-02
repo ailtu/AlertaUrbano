@@ -93,11 +93,11 @@ h1 {
     text-align: center;
     margin-top: 10px;
     font-size: 14px;
-    color: #333;
+    color: #000000;
 }
 
 .signup-link a {
-    color: #007BFF;
+    color: #000000;
     text-decoration: none;
     font-weight: bold;
 }
@@ -113,6 +113,19 @@ h1 {
 .google-btn:hover {
     background-color: #b0b0b0;
 }
+
+.link-custom {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-custom:hover {
+  color: #555; /* ou outra cor de destaque */
+  text-decoration: underline; /* ou 'none' se não quiser nada */
+}
+
+
 
 /* Responsivo */
 @media (max-width: 480px) {
