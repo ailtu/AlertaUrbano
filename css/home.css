@@ -96,7 +96,25 @@ a {
     text-decoration: none;
 }
 
+.map-container {
+    position: relative;
+    width: 300px; /* ou o tamanho do mapa */
+    height: 400px; /* ou o tamanho do mapa */
+    margin: 0 auto; /* centraliza na tela */
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
 .alert-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    
     background-color: #FFD000;
     border-radius: 50%;
     padding: 6px;
@@ -126,6 +144,7 @@ a {
     width: 40px;
     height: 40px;
 }
+
 
 @media (min-width: 600px) {
     .map-container {
