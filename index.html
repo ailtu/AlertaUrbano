@@ -6,18 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="css/login.css">
     <script src="login.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a2c5b4a2d2.js" crossorigin="anonymous"></script>
+
+    <!-- Back4App -->
+    <script type="text/javascript" src="https://unpkg.com/parse/dist/parse.min.js"></script>
+
+    <script>
+        // Initialize Parse
+        Parse.initialize("SiuHdXCJvobgElteggFHLxlYV4VicWVCcTSiz7WQ", "88HJimRgUagRxpL6Z88QM2oKTAJMRiruyUr0VzPm"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+        Parse.serverURL = "https://parseapi.back4app.com/";
+    </script>
 </head>
 
 <body>
-
     <div class="container">
         <div class="login-box">
             <img src="images/login-img/logo.png.png" alt="Alerta Urbano" class="logo">
@@ -25,18 +34,18 @@
             <div class="input-group">
                 <label>
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" id="email" placeholder="Email" required>
                 </label>
             </div>
 
             <div class="input-group">
                 <label>
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Senha" required>
+                    <input type="password" id="senha" placeholder="Senha" required>
                 </label>
             </div>
 
-            <a href="pages/home.html" class="btn-login">Login</a>
+            <button class="btn-login" onclick="loginUsuario()">Login</button>
 
             <button class="google-btn">
                 <img src="images/login-img/google-icon.png.png" alt="Google">
@@ -46,10 +55,24 @@
             <br><a href="pages/recuperar-senha.html" class="link-custom">Esqueceu a senha?</a>
         </div>
 
-        <script src="https://kit.fontawesome.com/a2c5b4a2d2.js" crossorigin="anonymous"></script>
-</body>
-<p class="signup-link">
-    Não tem uma conta? <a href="./pages/cadastro.html" class="link-custom">Cadastre-se</a>
-</p>
+        <p class="signup-link">
+            Não tem uma conta? <a href="./pages/cadastro.html" class="link-custom">Cadastre-se</a>
+        </p>
 
+        <!-- Script de Login Back4App -->
+        <script>
+            async function loginUsuario() {
+                const email = document.getElementById('email').value;
+                const senha = document.getElementById('senha').value;
+
+                try {
+                    const user = await Parse.User.logIn(email, senha);
+                    alert("Login realizado com sucesso!");
+                    window.location.href = "pages/home.html";
+                } catch (error) {
+                    alert("Erro no login: " + error.message);
+                }
+            }
+        </script>
+</body>
 </html>

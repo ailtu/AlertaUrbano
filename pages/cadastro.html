@@ -1,34 +1,82 @@
-<!DOCTYPE html>
-<html lang="pt-br"></html>
-
 <head>
-    <link rel="stylesheet" href="../css/cadastro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro-se</title>
 
-    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 </head>
 
-<div class="smartphone">
-    <div class="register-container">
-        <img src="logo.png" alt="Logo" class="logo">
-        <h2>Criar Conta</h2>
+<body>
+    <div class="container">
+        <div class="register-box">
+            <img src="../images/login-img/logo.png.png" alt="Alerta Urbano" class="logo">
+            <h2>Criar Conta</h2>
 
-        <input type="text" placeholder="Nome completo">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Senha">
-        <input type="password" placeholder="Confirmar Senha">
+            <div class="input-group">
+                <input type="text" id="nome" placeholder="Nome completo" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="senha" placeholder="Senha" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="confirmarSenha" placeholder="Confirmar Senha" required>
+            </div>
 
-        <button class="register-btn">Cadastrar</button>
+            <button class="btn-register" onclick="cadastrarUsuario()">Cadastrar</button>
 
-        <div class="divider">ou</div>
+            <div class="divider">ou</div>
 
-        <button class="google-btn" onclick="window.location.href='https://accounts.google.com/signin'">
-            <img src="https://img.icons8.com/color/16/000000/google-logo.png"/>
-            Continue com o Google
-        </button>
+            <button class="google-btn">
+                <img src="https://img.icons8.com/color/16/000000/google-logo.png" />
+                Continue com o Google
+            </button>
 
-        <p class="login-link">
-            Já tem uma conta? <a href="../index.html" class="link-custom" >Entrar</a>
-        </p>
+            <p class="login-link">
+                Já tem uma conta? <a href="../index.html" class="link-custom">Entrar</a>
+            </p>
+        </div>
     </div>
-</div>
+
+    <!-- Script de cadastro -->
+    <script src="https://unpkg.com/parse/dist/parse.min.js"></script>
+
+    <script>
+        // Initialize Parse
+        Parse.initialize("SiuHdXCJvobgElteggFHLxlYV4VicWVCcTSiz7WQ", "88HJimRgUagRxpL6Z88QM2oKTAJMRiruyUr0VzPm"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+        Parse.serverURL = "https://parseapi.back4app.com/";
+
+        // Função de cadastro
+        async function cadastrarUsuario() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+            if (senha !== confirmarSenha) {
+                alert("As senhas não coincidem.");
+                return;
+            }
+
+            const user = new Parse.User();
+            user.set("username", email);
+            user.set("email", email);
+            user.set("password", senha);
+            user.set("nome", nome);
+
+            try {
+                await user.signUp();
+                alert("Cadastro realizado com sucesso!");
+                window.location.href = "home.html"; // Redireciona após cadastro
+            } catch (error) {
+                alert("Erro: " + error.message);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
