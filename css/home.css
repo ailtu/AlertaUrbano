@@ -5,8 +5,9 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+
 body {
-    background-color: #f1ecdf;
+    background-color: #1c1c1c;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -38,6 +39,7 @@ body {
     gap: 5px;
     flex-grow: 1;
     margin: 0 10px;
+    margin-top: 5px;
 }
 
 .search-bar input {
@@ -97,9 +99,10 @@ a {
 
 .map-container {
     position: relative;
-    width: 350px; /* ou o tamanho do mapa */
+    width: 330px; /* ou o tamanho do mapa */
     height: auto; /* ou o tamanho do mapa */
     margin: 0 auto; /* centraliza na tela */
+    margin-top: -20px;
 }
 
 .map {
@@ -110,15 +113,14 @@ a {
 
 .alert-btn {
     position: absolute;
-    bottom: 10px;
+    bottom: 30px; /* Distância da parte inferior */
     left: 50%;
     transform: translateX(-50%);
-    
     background-color: #FFD000;
     border-radius: 50%;
-    padding: 6px;
-    width: 70px; 
-    height: 70px; 
+    margin-top: -90px; 
+    width: 75px;
+    height: 75px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     cursor: pointer;
     display: flex;
@@ -140,8 +142,8 @@ a {
 }
 
 .alert-btn img {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
 }
 
 
@@ -156,3 +158,23 @@ a {
         font-size: 12px;
     }
 }
+body {
+    background-color: #1d1d1d; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.smartphone {
+    width: 400px;
+    height: 750px;
+    background-color: #e4e4e4;
+    border-radius: 40px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
