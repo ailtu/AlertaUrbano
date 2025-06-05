@@ -9,6 +9,15 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/home.css">
     <script src="https://kit.fontawesome.com/a2c5b4a2d2.js" crossorigin="anonymous"></script>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
 </head>
 
 <body>
@@ -29,12 +38,15 @@
 
         <main class="map-area">
             <div class="map-container">
-                <img src="../images/home-img/mapa.png" alt="Mapa" class="map-img">
+                <!-- Substitui a imagem estática -->
+                <div id="map" style="height: 400px; width: 100%; border-radius: 10px;"></div>
+
                 <button class="map-btn">
                     <i class="fa-solid fa-map"></i>
                 </button>
             </div>
         </main>
+
 
         <a href="alerta.html">
             <div class="alert-btn">
@@ -43,7 +55,20 @@
         </a>
     </div>
 
-    <script src="../js/script.js"></script>
+    <script>
+        const map = L.map('map').setView([-23.55052, -46.633308], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution:
+            '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([-8.055562, -34.888280])
+            .addTo(map)
+            .bindPopup('Rua do Príncipe, Recife - PE.')
+            .openPopup();
+    </script>
+
 </body>
 
 </html>
