@@ -30,23 +30,26 @@
             <div class="voice-icon">
                 <i class="fa-solid fa-microphone"></i>
             </div>
+
             <div class="search-bar">
-                <input type="text" placeholder="Pesquisar">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="Pesquisar">
+                <div id="search-results" class="search-results"></div>
+                <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
             </div>
         </header>
 
+        <script src="mapa.js"></script> <!-- Aqui chama o seu JS separado -->
+
+
+
         <main class="map-area">
             <div class="map-container">
-                <!-- Substitui a imagem estática -->
-                <div id="map" style="height: 400px; width: 100%; border-radius: 10px;"></div>
-
+                <div id="map"></div>
                 <button class="map-btn">
                     <i class="fa-solid fa-map"></i>
                 </button>
             </div>
         </main>
-
 
         <a href="alerta.html">
             <div class="alert-btn">
@@ -56,18 +59,73 @@
     </div>
 
     <script>
-        const map = L.map('map').setView([-23.55052, -46.633308], 13);
+        const map = L.map('map').setView([-8.055456, -34.888452], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution:
-            '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        L.marker([-8.055562, -34.888280])
-            .addTo(map)
-            .bindPopup('Rua do Príncipe, Recife - PE.')
-            .openPopup();
+        let marker; // para manter um único marcador
+
+        function buscarLocal() {
+            const place = document.getElementById('search-input').value;
+            const resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = ''; // limpa resultados anteriores
+
+            if (!place) {
+                alert('Digite um lugar!');
+                return;
+            }
+
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(place)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        data.slice(0, 5).forEach((item) => {  // Pega até 5 resultados
+                            const option = document.createElement('div');
+                            option.textContent = item.display_name;
+
+                            option.addEventListener('click', function () {
+                                const lat = item.lat;
+                                const lon = item.lon;
+
+                                map.setView([lat, lon], 13);
+
+                                if (marker) {
+                                    map.removeLayer(marker);
+                                }
+
+                                marker = L.marker([lat, lon]).addTo(map)
+                                    .bindPopup(item.display_name)
+                                    .openPopup();
+
+                                resultsDiv.innerHTML = ''; // limpa sugestões
+                            });
+
+                            resultsDiv.appendChild(option);
+                        });
+                    } else {
+                        resultsDiv.innerHTML = '<div>Nenhum resultado encontrado.</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro na busca:', error);
+                    alert('Erro ao buscar local.');
+                });
+        }
+
+
+        document.getElementById('search-btn').addEventListener('click', buscarLocal);
+
+        document.getElementById('search-input').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                buscarLocal();
+            }
+        });
     </script>
+
+
 
 </body>
 

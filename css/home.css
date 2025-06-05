@@ -31,6 +31,7 @@ body {
 }
 
 .search-bar {
+    position: relative;
     background-color: white;
     border-radius: 20px;
     display: flex;
@@ -55,6 +56,27 @@ body {
     cursor: pointer;
 }
 
+.search-results {
+    position: absolute;
+    top: 30px; /* Ajusta a distância do topo */
+    left: 10px; /* Ajusta a distância da esquerda */
+    width: 95%;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.search-results div {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.search-results div:hover {
+    background: #eee;
+}
+
 .map-area {
     flex-grow: 1;
     display: flex;
@@ -64,15 +86,21 @@ body {
 }
 
 .map-container {
+    border: 3px solid #333;
     border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     overflow: hidden;
-    width: 90%;
-    max-width: 450px;
+    width: 330px;
+    height: 250px;
     position: relative;
+    margin: 0 auto;
+    margin-top: -120px;
 }
 
-.map-img {
-    width: 100%;
+#map {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0; /* Remove border-radius from the map itself */
     display: block;
 }
 
@@ -86,6 +114,7 @@ body {
     padding: 8px;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    z-index: 1000; /* Ensure button stays on top */
 }
 
 .map-btn i {
@@ -93,23 +122,6 @@ body {
     font-size: 16px;
 }
 
-a {
-    text-decoration: none;
-}
-
-.map-container {
-    position: relative;
-    width: 330px; /* ou o tamanho do mapa */
-    height: auto; /* ou o tamanho do mapa */
-    margin: 0 auto; /* centraliza na tela */
-    margin-top: -20px;
-}
-
-.map {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-}
 
 .alert-btn {
     position: absolute;
