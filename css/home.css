@@ -132,6 +132,11 @@ body {
     font-size: 16px;
 }
 
+@media (min-width: 600px) {
+    .map-container {
+        height: 500px;
+    }
+}
 
 .alert-btn {
     position: absolute;
@@ -141,10 +146,10 @@ body {
     transform: translateX(-50%);
     background-color: #FFD000;
     border-radius: 50%;
-    margin-top: -90px; 
-    width: 70px;
-    height: 70px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    margin-top: -90px;
+    width: 75px;
+    height: 75px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -170,11 +175,7 @@ body {
 }
 
 
-@media (min-width: 600px) {
-    .map-container {
-        height: 370px;
-    }
-}
+
 
 @media (max-width: 480px) {
     .search-bar input {
@@ -191,7 +192,7 @@ body {
 }
 
 .smartphone {
-    width: 300px;
+    width: 400px;
     height: 750px;
     background-color: #e4e4e4;
     border-radius: 40px;
@@ -201,6 +202,7 @@ body {
     flex-direction: column;
     position: relative;
 }
+
 
 .reports-btn {
     color: #1c1c1c !important;

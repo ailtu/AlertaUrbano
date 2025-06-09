@@ -14,13 +14,17 @@
     border-radius: 0 0 25px 25px;
 }
 
-.menu-icon i,
-.voice-icon i {
+.menu-icon i {
     font-size: 20px;
     cursor: pointer;
     color: #1c1c1c;
 }
-
+.voice-icon i {
+    margin-left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #1c1c1c;
+}
 .search-bar {
     background-color: white;
     border-radius: 20px;
@@ -54,15 +58,25 @@
 }
 
 .map-container {
+    border: 3px solid #333;
     border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     overflow: hidden;
-    width: 90%;
-    max-width: 450px;
+    width: 330px;
+    height: 250px;
     position: relative;
+    margin: 0 auto;
 }
 
-.map-img {
-    width: 100%;
+.map-container {
+    position: relative;
+    z-index: 1; /* ou remova se não for necessário */
+}
+
+#map {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0; /* Remove border-radius from the map itself */
     display: block;
 }
 
@@ -75,7 +89,8 @@
     border-radius: 50%;
     padding: 8px;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    z-index: 1000; /* Ensure button stays on top */
 }
 
 .map-btn i {
@@ -83,19 +98,10 @@
     font-size: 16px;
 }
 
-.map-container {
-    position: relative;
-    width: 350px;
-    height: auto;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.map {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    display: block;
+@media (min-width: 600px) {
+    .map-container {
+        height: 400px;
+    }
 }
 
 .alert-menu {
@@ -123,6 +129,13 @@
     transform: scale(1.1);
 }
 
+.alert-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* ===== Submenu ===== */
 .submenu {
     position: absolute;
     left: 10px;
@@ -132,7 +145,7 @@
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     display: none;
-    z-index: 10;
+    z-index: 999; /* aumenta para aparecer acima do mapa e botão */
 }
 
 .submenu h4 {
@@ -157,18 +170,9 @@
     background-color: #f4d03f;
 }
 
-.alert-btn img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
 
-/* ===== Responsivo ===== */
-@media (min-width: 600px) {
-    .map-container {
-        height: 500px;
-    }
-}
+
+
 
 body {
     background-color: #1d1d1d;
@@ -188,4 +192,34 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+
+
+
+
+
+@media (max-width: 480px) {
+    .search-bar input {
+        font-size: 12px;
+    }
+}
+
+
+
+
+.reports-btn {
+    color: #1c1c1c !important; /* força cor escura */
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    align-self: center;
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.reports-btn:hover {
+    background-color: #ccc;
 }
