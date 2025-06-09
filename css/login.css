@@ -14,12 +14,12 @@ body {
 }
 
 .container {
-    background-color:  #e4e4e4;
+    background-color: #e4e4e4;
     padding: 40px 30px;
     border-radius: 30px;
     width: 400px;
     text-align: center;
-    min-height: 700px; 
+    min-height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,18 +119,15 @@ h1 {
 }
 
 .link-custom {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .link-custom:hover {
-  color: #555;
-  text-decoration: underline; 
+    color: #555;
+    text-decoration: underline;
 }
-
-
-
 
 @media (max-width: 480px) {
     .container {

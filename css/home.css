@@ -58,8 +58,10 @@ body {
 
 .search-results {
     position: absolute;
-    top: 30px; /* Ajusta a distância do topo */
-    left: 10px; /* Ajusta a distância da esquerda */
+    top: 30px;
+    /* Ajusta a distância do topo */
+    left: 10px;
+    /* Ajusta a distância da esquerda */
     width: 95%;
     background: white;
     border: 1px solid #ccc;
@@ -88,7 +90,7 @@ body {
 .map-container {
     border: 3px solid #333;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     width: 330px;
     height: 250px;
@@ -100,7 +102,8 @@ body {
 #map {
     width: 100% !important;
     height: 100% !important;
-    border-radius: 0; /* Remove border-radius from the map itself */
+    border-radius: 0;
+    /* Remove border-radius from the map itself */
     display: block;
 }
 
@@ -113,8 +116,9 @@ body {
     border-radius: 50%;
     padding: 8px;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    z-index: 1000; /* Ensure button stays on top */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    /* Ensure button stays on top */
 }
 
 .map-btn i {
@@ -125,15 +129,16 @@ body {
 
 .alert-btn {
     position: absolute;
-    bottom: 30px; /* Distância da parte inferior */
+    bottom: 30px;
+    /* Distância da parte inferior */
     left: 50%;
     transform: translateX(-50%);
     background-color: #FFD000;
     border-radius: 50%;
-    margin-top: -90px; 
+    margin-top: -90px;
     width: 75px;
     height: 75px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -170,8 +175,9 @@ body {
         font-size: 12px;
     }
 }
+
 body {
-    background-color: #1d1d1d; 
+    background-color: #1d1d1d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,7 +197,8 @@ body {
 }
 
 .reports-btn {
-    color: #1c1c1c !important; /* força cor escura */
+    color: #1c1c1c !important;
+    /* força cor escura */
     font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
