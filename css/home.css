@@ -190,3 +190,18 @@ body {
     position: relative;
 }
 
+.reports-btn {
+    color: #1c1c1c !important; /* força cor escura */
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    align-self: center;
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.reports-btn:hover {
+    background-color: #ccc;
+}

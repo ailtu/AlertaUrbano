@@ -6,12 +6,7 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-body {
-    background-color: #f1ecdf;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
+
 
 /* ===== Barra Superior ===== */
 .top-bar {
@@ -182,3 +177,22 @@ body {
     }
 }
 
+body {
+    background-color: #1d1d1d; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.smartphone {
+    width: 400px;
+    height: 750px;
+    background-color: #e4e4e4;
+    border-radius: 40px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
