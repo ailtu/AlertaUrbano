@@ -1,13 +1,13 @@
 function configurarValidadorDeCep() {
     const cepInput = document.getElementById('cep');
     const erroCep = document.getElementById('erro-cep');
-  
+
     cepInput.addEventListener('input', () => {
-      const apenasNumeros = /^\d*$/;
-      erroCep.style.display = apenasNumeros.test(cepInput.value) ? 'none' : 'block';
+        const apenasNumeros = /^\d*$/;
+        erroCep.style.display = apenasNumeros.test(cepInput.value) ? 'none' : 'block';
     });
-  }
-  
+}
+
 
 document.querySelector('.form-report').addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -57,7 +57,6 @@ document.querySelector('.form-report').addEventListener('submit', async function
 
 window.addEventListener('DOMContentLoaded', () => {
     configurarValidadorDeCep();
-  
+
     // Aqui você pode adicionar outras coisas que precisam ser feitas quando a página carregar
-  });
-  
+});

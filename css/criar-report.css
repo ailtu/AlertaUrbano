@@ -44,7 +44,9 @@ body {
     margin-top: 10px;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
     padding: 8px;
     border: none;
@@ -112,7 +114,7 @@ textarea {
 }
 
 body {
-    background-color: #1d1d1d; 
+    background-color: #1d1d1d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,8 +143,10 @@ body {
 }
 
 .form-report {
-    flex: 1; /* Faz o formulário crescer e ocupar espaço */
+    flex: 1;
+    /* Faz o formulário crescer e ocupar espaço */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribui campos e botão */
+    justify-content: space-between;
+    /* Distribui campos e botão */
 }
