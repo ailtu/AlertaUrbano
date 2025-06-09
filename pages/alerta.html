@@ -6,22 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reportar Problema</title>
 
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-
     <link rel="stylesheet" href="../css/alerta.css">
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
 </head>
 
 <body>
     <div class="smartphone"> <!-- Adicionada esta div para simular o formato de celular -->
 
+        <header class="top-bar">
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="voice-icon">
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Pesquisar">
+                <div id="search-results" class="search-results"></div>
+                <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
+            </div>
+
+            <!-- Botão novo para reports -->
+            <a href="meus-reports.html" class="reports-btn" title="Meus Reports">
+                <i class="fa-solid fa-file"></i>
+
+            </a>
+        </header>
+
+
+
+
+
+
         <main class="map-area">
             <div class="map-container">
-                <img src="../images/home-img/mapa.png" alt="Mapa" class="map-img">
-                <button class="map-btn"><i class="fa-solid fa-map"></i></button>
+                <div id="map"></div>
+                <button class="map-btn">
+                    <i class="fa-solid fa-map"></i>
+                </button>
             </div>
         </main>
 
@@ -58,7 +87,115 @@
 
     </div> <!-- Fim da div.smartphone -->
 
-    <script src="../js/alerta.js"></script>
+    <script>
+        const submenu = document.getElementById('submenu');
+        const submenuTitle = document.getElementById('submenu-title');
+        const submenuOptions = document.getElementById('submenu-options');
+
+        const categories = {
+            transito: ['Acidente', 'Buracos na via', 'Congestionamento', 'Estacionamento irregular', 'Faixa Interditada'],
+            energia: ['Queda de energia', 'Fio exposto', 'Curto circuito'],
+            enchente: ['Alagamento', 'Risco de enchente'],
+            infraestrutura: ['Obra na via', 'Faixa interditada', 'Buracos'],
+            arvore: ['Árvore caída', 'Risco de queda'],
+            lixo: ['Lixo acumulado', 'Descarte irregular']
+        };
+
+        // Abrir submenu
+        document.querySelectorAll('.alert-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const type = btn.getAttribute('data-type');
+                const options = categories[type];
+
+                submenuTitle.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+                submenuOptions.innerHTML = '';
+
+                options.forEach(opcao => {
+                    const li = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = 'criar-report.html';
+                    link.textContent = opcao;
+                    link.classList.add('submenu-item');
+                    li.appendChild(link);
+                    submenuOptions.appendChild(li);
+                });
+
+                submenu.style.display = 'block';
+            });
+        });
+
+        // Fechar submenu clicando fora
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.alert-btn') && !e.target.closest('.submenu')) {
+                submenu.style.display = 'none';
+            }
+        });
+
+        const map = L.map('map').setView([-8.055456, -34.888452], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        let marker; // para manter um único marcador
+
+        function buscarLocal() {
+            const place = document.getElementById('search-input').value;
+            const resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = ''; // limpa resultados anteriores
+
+            if (!place) {
+                alert('Digite um lugar!');
+                return;
+            }
+
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(place)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        data.slice(0, 5).forEach((item) => {  // Pega até 5 resultados
+                            const option = document.createElement('div');
+                            option.textContent = item.display_name;
+
+                            option.addEventListener('click', function () {
+                                const lat = item.lat;
+                                const lon = item.lon;
+
+                                map.setView([lat, lon], 13);
+
+                                if (marker) {
+                                    map.removeLayer(marker);
+                                }
+
+                                marker = L.marker([lat, lon]).addTo(map)
+                                    .bindPopup(item.display_name)
+                                    .openPopup();
+
+                                resultsDiv.innerHTML = ''; // limpa sugestões
+                            });
+
+                            resultsDiv.appendChild(option);
+                        });
+                    } else {
+                        resultsDiv.innerHTML = '<div>Nenhum resultado encontrado.</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro na busca:', error);
+                    alert('Erro ao buscar local.');
+                });
+        }
+
+
+        document.getElementById('search-btn').addEventListener('click', buscarLocal);
+
+        document.getElementById('search-input').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                buscarLocal();
+            }
+        });
+    </script>
 </body>
 
 </html>
