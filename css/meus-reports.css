@@ -32,7 +32,6 @@ body {
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-radius: 0 0 25px 25px;
 }
 
@@ -45,6 +44,7 @@ body {
   font-size: 20px;
   color: #1c1c1c;
   cursor: pointer;
+  width: 27px;
 }
 
 .report-list {
@@ -69,4 +69,20 @@ body {
 .report-item p {
   font-size: 14px;
   color: #555;
+}
+
+.delete-btn {
+  margin-top: 8px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
 }
