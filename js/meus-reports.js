@@ -62,5 +62,4 @@ async function carregarReports() {
   }
 }
 
-
 document.addEventListener("DOMContentLoaded", carregarReports);
