@@ -23,8 +23,14 @@ body {
     border-radius: 0 0 25px 25px;
 }
 
-.menu-icon i,
+.menu-icon i {
+    font-size: 20px;
+    cursor: pointer;
+    color: #1c1c1c;
+}
+
 .voice-icon i {
+    margin-left: 15px;
     font-size: 20px;
     cursor: pointer;
     color: #1c1c1c;
@@ -40,7 +46,7 @@ body {
     gap: 5px;
     flex-grow: 1;
     margin: 0 10px;
-    margin-top: 5px;
+    margin-top: 1px;
 }
 
 .search-bar input {
@@ -96,7 +102,7 @@ body {
     height: 250px;
     position: relative;
     margin: 0 auto;
-    margin-top: -120px;
+    margin-top: -140px;
 }
 
 #map {
