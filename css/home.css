@@ -161,7 +161,7 @@ body {
 
 @media (min-width: 600px) {
     .map-container {
-        height: 500px;
+        height: 370px;
     }
 }
 
@@ -179,7 +179,7 @@ body {
 }
 
 .smartphone {
-    width: 400px;
+    width: 300px;
     height: 750px;
     background-color: #e4e4e4;
     border-radius: 40px;
