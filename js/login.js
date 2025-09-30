@@ -4,7 +4,7 @@ async function login() {
 
     if (!email || !password) {
         alert('Por favor, preencha todos os campos!');
-        return;  // Para a execução aqui
+        return;
     }
 
     const { data, error } = await supabase.auth.signInWithPassword({

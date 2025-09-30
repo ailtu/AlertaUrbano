@@ -29,7 +29,6 @@ function loadLeaflet(callback) {
     document.body.appendChild(leafletScript);
 }
 
-
 // Abrir submenu
 document.querySelectorAll('.alert-btn').forEach(btn => {
     btn.addEventListener('click', () => {

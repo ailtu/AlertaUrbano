@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="smartphone"> <!-- Adicionada esta div para simular o formato de celular -->
+    <div class="smartphone">
 
         <header class="top-bar">
             <div class="menu-icon">
@@ -33,17 +33,11 @@
                 <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
             </div>
 
-            <!-- Botão novo para reports -->
             <a href="meus-reports.html" class="reports-btn" title="Meus Reports">
                 <i class="fa-solid fa-file"></i>
 
             </a>
         </header>
-
-
-
-
-
 
         <main class="map-area">
             <div class="map-container">
@@ -85,7 +79,7 @@
             <ul id="submenu-options"></ul>
         </div>
 
-    </div> <!-- Fim da div.smartphone -->
+    </div>
 
     <script>
         const submenu = document.getElementById('submenu');
@@ -101,7 +95,6 @@
             lixo: ['Lixo acumulado', 'Descarte irregular']
         };
 
-        // Abrir submenu
         document.querySelectorAll('.alert-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const type = btn.getAttribute('data-type');
@@ -186,7 +179,6 @@
                     alert('Erro ao buscar local.');
                 });
         }
-
 
         document.getElementById('search-btn').addEventListener('click', buscarLocal);
 

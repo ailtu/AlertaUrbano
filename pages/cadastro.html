@@ -41,40 +41,34 @@
         </div>
     </div>
 
-    <!-- Script de cadastro -->
-    <script src="https://unpkg.com/parse/dist/parse.min.js"></script>
+    <!-- Script de cadastro ajustar com o novo bd -->
+    </script>
+    // Função de cadastro
+    async function cadastrarUsuario() {
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+    const confirmarSenha = document.getElementById('confirmarSenha').value;
 
-    <script>
-        // Initialize Parse
-        Parse.initialize("SiuHdXCJvobgElteggFHLxlYV4VicWVCcTSiz7WQ", "88HJimRgUagRxpL6Z88QM2oKTAJMRiruyUr0VzPm"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
-        Parse.serverURL = "https://parseapi.back4app.com/";
+    if (senha !== confirmarSenha) {
+    alert("As senhas não coincidem.");
+    return;
+    }
 
-        // Função de cadastro
-        async function cadastrarUsuario() {
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmarSenha').value;
+    const user = new Parse.User();
+    user.set("username", email);
+    user.set("email", email);
+    user.set("password", senha);
+    user.set("nome", nome);
 
-            if (senha !== confirmarSenha) {
-                alert("As senhas não coincidem.");
-                return;
-            }
-
-            const user = new Parse.User();
-            user.set("username", email);
-            user.set("email", email);
-            user.set("password", senha);
-            user.set("nome", nome);
-
-            try {
-                await user.signUp();
-                alert("Cadastro realizado com sucesso!");
-                window.location.href = "../index.html"; // Redireciona após cadastro
-            } catch (error) {
-                alert("Erro: " + error.message);
-            }
-        }
+    try {
+    await user.signUp();
+    alert("Cadastro realizado com sucesso!");
+    window.location.href = "../index.html"; // Redireciona após cadastro
+    } catch (error) {
+    alert("Erro: " + error.message);
+    }
+    }
     </script>
 
 </body>

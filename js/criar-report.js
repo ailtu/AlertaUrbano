@@ -8,7 +8,6 @@ function configurarValidadorDeCep() {
     });
 }
 
-
 document.querySelector('.form-report').addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -29,12 +28,10 @@ document.querySelector('.form-report').addEventListener('submit', async function
         data: new Date().toISOString()
     };
 
-    // 1. Salvar localmente no localStorage
     let reportsLocal = JSON.parse(localStorage.getItem('reports')) || [];
     reportsLocal.push(reportData);
     localStorage.setItem('reports', JSON.stringify(reportsLocal));
 
-    // 2. Tentar salvar no backend (Parse)
     const Report = Parse.Object.extend("Report");
     const report = new Report();
 
@@ -57,6 +54,4 @@ document.querySelector('.form-report').addEventListener('submit', async function
 
 window.addEventListener('DOMContentLoaded', () => {
     configurarValidadorDeCep();
-
-    // Aqui você pode adicionar outras coisas que precisam ser feitas quando a página carregar
 });

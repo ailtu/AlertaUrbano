@@ -1,7 +1,3 @@
-// Configurar conexão Parse
-Parse.initialize("SiuHdXCJvobgElteggFHLxlYV4VicWVCcTSiz7WQ", "88HJimRgUagRxpL6Z88QM2oKTAJMRiruyUr0VzPm");
-Parse.serverURL = "https://parseapi.back4app.com/";
-
 async function carregarReports() {
   const listEl = document.getElementById("report-list");
   listEl.innerHTML = "";
