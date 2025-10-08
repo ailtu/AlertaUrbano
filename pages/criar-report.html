@@ -2,75 +2,71 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Report</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar Report</title>
 
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="../css/criar-report.css">
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../css/criar-report.css" />
 </head>
 
 <body>
-    <div class="smartphone">
-        <div class="container">
-            <div class="header">
-                <a href="home.html" class="back-btn">⮐</a>
-                <h2>Criar report</h2>
-            </div>
+  <div class="smartphone">
+    <div class="container">
+      <div class="header">
+        <a href="home.html" class="back-btn">⮐</a>
+        <h2>Criar report</h2>
+      </div>
 
-            <form class="form-report">
+      <form class="form-report" id="reportForm">
 
-                <label for="tipo">Tipo do problema</label>
-                <select id="tipo" required>
-                    <option value="">Selecione</option>
-                    <option value="transito">Trânsito</option>
-                    <option value="energia">Energia</option>
-                    <option value="enchente">Enchente</option>
-                    <option value="infra">Infraestrutura</option>
-                    <option value="arvore">Árvore caída</option>
-                    <option value="lixo">Acúmulo de lixo</option>
-                </select>
+        <label for="tipo">Tipo do problema</label>
+        <select id="tipo" required>
+          <option value="">Selecione</option>
+          <option value="transito">Trânsito</option>
+          <option value="energia">Energia</option>
+          <option value="enchente">Enchente</option>
+          <option value="infra">Infraestrutura</option>
+          <option value="arvore">Árvore caída</option>
+          <option value="lixo">Acúmulo de lixo</option>
+        </select>
 
-                <label for="titulo">Título</label>
-                <input type="text" id="titulo" placeholder="Ex.: Buracos na via" required>
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" placeholder="Ex.: Buracos na via" required />
 
-                <div class="input-group">
-                    <div>
-                        <label for="endereco">Endereço</label>
-                        <input type="text" id="endereco" placeholder="Rua..." required>
-                    </div>
-                    <div>
-                        <label for="numero">Número</label>
-                        <input type="number" id="numero" placeholder="0" required>
-                    </div>
-                </div>
-
-                <label for="cep">CEP</label>
-                <div class="cep-group">
-                    <input type="text" id="cep" maxlength="8" placeholder="Apenas números" required>
-                    <span id="erro-cep" class="erro-cep">⚠️ Apenas números</span>
-                </div>
-
-                <label>Fotos</label>
-                <div class="fotos">
-                    <button type="button" class="btn-foto">📷</button>
-                    <button type="button" class="btn-foto">+</button>
-                </div>
-
-                <label for="descricao">Descrição do problema</label>
-                <textarea id="descricao" rows="3" placeholder="Descreva o problema..." required></textarea>
-
-                <button type="submit" class="btn-enviar">Enviar</button>
-            </form>
+        <div class="input-group">
+          <div>
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" placeholder="Rua..." required />
+          </div>
+          <div>
+            <label for="numero">Número</label>
+            <input type="number" id="numero" placeholder="0" required />
+          </div>
         </div>
+
+        <label for="cep">CEP</label>
+        <div class="cep-group">
+          <input type="text" id="cep" maxlength="8" placeholder="Apenas números" required />
+          <span id="erro-cep" class="erro-cep">⚠️ Apenas números</span>
+        </div>
+
+        <label>Fotos</label>
+        <div class="fotos">
+          <button type="button" class="btn-foto">📷</button>
+          <button type="button" class="btn-foto">+</button>
+        </div>
+
+        <label for="descricao">Descrição do problema</label>
+        <textarea id="descricao" rows="3" placeholder="Descreva o problema..." required></textarea>
+
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
     </div>
-    <script src="https://unpkg.com/parse/dist/parse.min.js"></script>
-    <script>
-        Parse.initialize("SiuHdXCJvobgElteggFHLxlYV4VicWVCcTSiz7WQ", "88HJimRgUagRxpL6Z88QM2oKTAJMRiruyUr0VzPm");
-        Parse.serverURL = "https://parseapi.back4app.com/";
-    </script>
-    <script src="../js/criar-report.js"></script>
+  </div>
+
+  <!-- Novo JS -->
+  <script src="../js/criar-report.js"></script>
 </body>
 
 </html>

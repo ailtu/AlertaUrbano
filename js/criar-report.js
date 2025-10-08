@@ -1,3 +1,4 @@
+// Validar CEP
 function configurarValidadorDeCep() {
     const cepInput = document.getElementById('cep');
     const erroCep = document.getElementById('erro-cep');
@@ -8,7 +9,8 @@ function configurarValidadorDeCep() {
     });
 }
 
-document.querySelector('.form-report').addEventListener('submit', async function (e) {
+// Enviar o report
+document.getElementById('reportForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const tipo = document.getElementById('tipo').value;
@@ -17,41 +19,32 @@ document.querySelector('.form-report').addEventListener('submit', async function
     const numero = document.getElementById('numero').value;
     const cep = document.getElementById('cep').value;
     const descricao = document.getElementById('descricao').value;
-
+    
     const reportData = {
-        tipo,
-        titulo,
-        endereco,
-        numero: parseInt(numero),
-        cep,
-        descricao,
-        data: new Date().toISOString()
+        title: titulo,
+        description: descricao,
+        location: `${endereco}, ${numero} - CEP: ${cep} [${tipo}]`
     };
 
-    let reportsLocal = JSON.parse(localStorage.getItem('reports')) || [];
-    reportsLocal.push(reportData);
-    localStorage.setItem('reports', JSON.stringify(reportsLocal));
-
-    const Report = Parse.Object.extend("Report");
-    const report = new Report();
-
-    Object.entries(reportData).forEach(([key, value]) => {
-        report.set(key, value);
-    });
-
     try {
-        await report.save();
-        console.log("Report salvo no backend com sucesso.");
+        const response = await fetch('/api/reports', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(reportData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Report enviado com sucesso!');
+            window.location.href = 'home.html';
+        } else {
+            alert(`Erro: ${data.error}`);
+        }
     } catch (error) {
-        console.warn("Falha ao salvar no backend, mantendo apenas local:", error.message);
+        console.error(error);
+        alert('Erro de conexão com o servidor.');
     }
-
-    alert("Report enviado com sucesso!");
-
-    // 3. Redirecionar para a tela home
-    window.location.href = "home.html";
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-    configurarValidadorDeCep();
-});
+window.addEventListener('DOMContentLoaded', configurarValidadorDeCep);

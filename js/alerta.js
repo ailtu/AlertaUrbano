@@ -52,7 +52,6 @@ document.querySelectorAll('.alert-btn').forEach(btn => {
     });
 });
 
-// Fechar submenu clicando fora
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.alert-btn') && !e.target.closest('.submenu')) {
         submenu.style.display = 'none';
@@ -60,8 +59,7 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // outras funções e listeners aqui...
-
+ 
     loadLeaflet(() => {
         const map = L.map('map').setView([-8.055456, -34.888452], 13);
 

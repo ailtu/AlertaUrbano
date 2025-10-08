@@ -1,21 +1,26 @@
-async function login() {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    if (!email || !password) {
-        alert('Por favor, preencha todos os campos!');
-        return;
-    }
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
+  try {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: email, password: senha })
     });
 
-    if (error) {
-        alert('Erro: ' + error.message);
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Login realizado com sucesso!");
+      window.location.href = "/pages/home.html";
     } else {
-        alert('Login bem-sucedido!');
-        document.querySelector('.btn-login').innerText = 'Logado!';
+      alert("Erro: " + data.error);
     }
-}
+  } catch (err) {
+    console.error(err);
+    alert("Erro de conexão com o servidor.");
+  }
+});

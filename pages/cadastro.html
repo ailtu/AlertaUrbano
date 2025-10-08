@@ -1,7 +1,10 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro-se</title>
+    <title>Cadastrar-se</title>
 
     <link rel="stylesheet" href="../css/cadastro.css">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -13,20 +16,22 @@
             <img src="../images/login-img/logo.png.png" alt="Alerta Urbano" class="logo">
             <h2>Criar Conta</h2>
 
-            <div class="input-group">
-                <input type="text" id="nome" placeholder="Nome completo" required>
-            </div>
-            <div class="input-group">
-                <input type="email" id="email" placeholder="Email" required>
-            </div>
-            <div class="input-group">
-                <input type="password" id="senha" placeholder="Senha" required>
-            </div>
-            <div class="input-group">
-                <input type="password" id="confirmarSenha" placeholder="Confirmar Senha" required>
-            </div>
+            <form id="registerForm">
+                <div class="input-group">
+                    <input type="text" id="nome" placeholder="Nome completo" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="senha" placeholder="Senha" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="confirmarSenha" placeholder="Confirmar Senha" required>
+                </div>
 
-            <button class="btn-register" onclick="cadastrarUsuario()">Cadastrar</button>
+                <button type="submit" class="btn-register">Cadastrar</button>
+            </form>
 
             <div class="divider">ou</div>
 
@@ -36,41 +41,11 @@
             </button>
 
             <p class="login-link">
-                Já tem uma conta? <a href="../index.html" class="link-custom">Entrar</a>
+                Já tem uma conta? <a href="../pages/login.html" class="link-custom">Entrar</a>
             </p>
         </div>
     </div>
 
-    <!-- Script de cadastro ajustar com o novo bd -->
-    </script>
-    // Função de cadastro
-    async function cadastrarUsuario() {
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const senha = document.getElementById('senha').value;
-    const confirmarSenha = document.getElementById('confirmarSenha').value;
-
-    if (senha !== confirmarSenha) {
-    alert("As senhas não coincidem.");
-    return;
-    }
-
-    const user = new Parse.User();
-    user.set("username", email);
-    user.set("email", email);
-    user.set("password", senha);
-    user.set("nome", nome);
-
-    try {
-    await user.signUp();
-    alert("Cadastro realizado com sucesso!");
-    window.location.href = "../index.html"; // Redireciona após cadastro
-    } catch (error) {
-    alert("Erro: " + error.message);
-    }
-    }
-    </script>
-
+    </script src="../js/cadastro.js"></script>
 </body>
-
 </html>

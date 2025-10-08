@@ -4,68 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>AlertaUrbano</title>
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/index.css">
     <script src="login.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
 </head>
 
 <body>
-    <div class="container">
-        <div class="login-box">
-            <img src="images/login-img/logo.png.png" alt="Alerta Urbano" class="logo">
-
-            <div class="input-group">
-                <label>
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" id="email" placeholder="Email" required>
-                </label>
-            </div>
-
-            <div class="input-group">
-                <label>
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" id="senha" placeholder="Senha" required>
-                </label>
-            </div>
-
-            <button class="btn-login" onclick="loginUsuario()">Login</button>
-
-            <button class="google-btn">
-                <img src="images/login-img/google-icon.png.png" alt="Google">
-                Continue com o Google
-            </button>
-
-            <br><a href="pages/recuperar-senha.html" class="link-custom">Esqueceu a senha?</a>
-        </div>
-
-        <p class="signup-link">
-            Não tem uma conta? <a href="./pages/cadastro.html" class="link-custom">Cadastre-se</a>
-        </p>
-
-        <!-- Script de Login Back4App -->
-        <script>
-            async function loginUsuario() {
-                const email = document.getElementById('email').value;
-                const senha = document.getElementById('senha').value;
-
-                try {
-                    const user = await Parse.User.logIn(email, senha);
-                    alert("Login realizado com sucesso!");
-                    window.location.href = "pages/home.html";
-                } catch (error) {
-                    alert("Erro no login: " + error.message);
-                }
-            }
-        </script>
+    <div>
+        <img src="images/login-img/logo.png.png" alt="Logo">
+    </div>
 </body>
 
 </html>

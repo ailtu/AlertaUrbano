@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="login.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="images/login-img/logo.png.png" alt="Alerta Urbano" class="logo">
+
+            <div class="input-group">
+                <label>
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </label>
+            </div>
+
+            <div class="input-group">
+                <label>
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="senha" placeholder="Senha" required>
+                </label>
+            </div>
+
+            <button class="btn-login" onclick="loginUsuario()">Login</button>
+
+            <button class="google-btn">
+                <img src="images/login-img/google-icon.png.png" alt="Google">
+                Continue com o Google
+            </button>
+
+            <br><a href="pages/recuperar-senha.html" class="link-custom">Esqueceu a senha?</a>
+        </div>
+
+        <p class="signup-link">
+            Não tem uma conta? <a href="../pages/cadastro.html" class="link-custom">Cadastre-se</a>
+        </p>
+</body>
+
+</html>

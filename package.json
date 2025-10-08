@@ -1,0 +1,27 @@
+{
+  "name": "alertaurbano",
+  "version": "1.0.0",
+  "description": "Em diversas cidades brasileiras — sobretudo em centros urbanos como o Recife —,  problemas cotidianos como buracos nas vias, acúmulo de lixo, enchentes e árvores  caídas são frequentemente ignorados ou levam muito tempo para serem solucionados  pelos órgãos competentes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ailtu/AlertaUrbano.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ailtu/AlertaUrbano/issues"
+  },
+  "homepage": "https://github.com/ailtu/AlertaUrbano#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2",
+    "parse": "^6.1.1"
+  }
+}

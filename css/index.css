@@ -1,0 +1,9 @@
+/* estilização para a tela raiz */
+
+body {
+    background-color: #e4e4e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
